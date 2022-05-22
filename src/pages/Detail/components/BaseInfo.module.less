@@ -1,0 +1,68 @@
+:local(.baseInfo) {
+  padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
+
+  .baseInfoTop {
+    display: flex;
+    justify-content: space-between;
+
+    .back {
+      margin-top: 65px;
+      display: block;
+      color: #332821;
+      margin-bottom: 40px;
+      font-size: 20px;
+    }
+
+    .cityName {
+      font-size: 30px;
+      line-height: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+  
+    .temp {
+      font-size: 70px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+
+      .unit {
+        font-size: 18px;
+        line-height: 60px;
+      }
+    }
+
+    .img {
+      margin-top: 40px;
+      width: 100px;
+    }
+  }
+
+  .baseInfoBottom {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    .tagItem {
+      padding: 0 15px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      border-radius: 20px;
+      font-size: 14px;
+
+      :global(.iconfont) {
+        margin-right: 11px;
+        font-size: 20px;
+        display: inline-block;
+      }
+    }
+  }
+  .today {
+    color: #332821;
+    font-size: 18px;
+    font-weight: 700;
+  }
+}

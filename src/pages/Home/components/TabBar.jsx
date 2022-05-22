@@ -7,7 +7,7 @@ import styles from './TabBar.module.less';
 const TABS = [
   {
     link: '/',
-    icon: 'homefill',
+    icon: 'home',
     text: 'Home'
   }
 ]
@@ -15,6 +15,7 @@ const TABS = [
 export default function TabBar (props) {
   // TODO:
   const activeTabIdx = 0;
+
   return (
     <div className={styles.tabbar}>
       {TABS.map((config, idx) => {

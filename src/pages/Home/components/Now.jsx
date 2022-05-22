@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './Today.module.less';
+import NumericalValue from './NumericalValue';
+import styles from './Now.module.less';
 
 
-export default function Today () {
+export default function Now () {
 
   return (
-    <div className={styles.today}>
+    <div className={styles.now}>
       <div className={styles.panel}>
         <img
           className={styles.nowImg}
@@ -37,6 +38,7 @@ export default function Today () {
           详情
         </Link>
       </div>
+      <NumericalValue/>
     </div>
   )
 }

@@ -1,12 +1,12 @@
 import React from 'react';
 import TabBar from './components/TabBar';
-import Today from './components/Today';
+import Now from './components/Now';
 import './style.less';
 
 export default function Home () {
   return (
     <div className="home">
-      <Today />
+      <Now />
       <TabBar />
     </div>
   );
