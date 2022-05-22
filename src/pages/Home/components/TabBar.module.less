@@ -1,0 +1,32 @@
+:local(.tabbar) {
+  width: 343px;
+  height: 64px;
+  background: #FBFBFB;
+  border-radius: 20px;
+  position: fixed;
+  left:50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  align-items: center;
+  padding: 0 15px;
+  display: flex;
+  box-sizing: border-box;
+
+  .active {
+    color: #D86191;
+  }
+
+  .tabItem {
+    min-width: 78px;
+    align-items: center;
+    display: inline-flex;
+    flex-direction: column;
+
+    .icon {
+      font-size: 20px;
+    }
+    .text {
+      font-size: 12px;
+    }
+  }
+}
