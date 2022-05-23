@@ -45,12 +45,13 @@ export const getWeatherImg = (weatherText, date, needSmall = false) => {
     return weather.small;
   }
 
+  console.log('date', date);
   if (!date) {
     return weather.day;
   }
 
   const hour = (new Date(date)).getHours();
-  return hour >= 18 && hour < 6
+  return hour >= 18 || hour < 6
     ? weather.night
     : weather.day;
 }
