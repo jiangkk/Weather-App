@@ -4,7 +4,7 @@ export const KEY = '66381596f11a42bf95673eb5523c69d2';
 export const WEATHER_FIELD_CONFIG = [
   {
     icon: 'rain',
-    text: '降水量',
+    text: '降水',
     field: 'precip',
     unit: '%',
     color: '#658ED9',
