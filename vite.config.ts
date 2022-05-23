@@ -12,6 +12,7 @@ export default defineConfig({
   build: {
     outDir: path.resolve(__dirname, "docs"),
   },
+  base: '/Weather-App/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, "src"),
