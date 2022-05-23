@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  BrowserRouter,
+  HashRouter,
   Routes,
   Route
 } from 'react-router-dom';
@@ -10,11 +10,11 @@ import Home from './pages/Home';
 
 export default function () {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="detail" element={<Detail />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
