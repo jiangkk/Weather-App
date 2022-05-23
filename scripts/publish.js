@@ -7,6 +7,7 @@ exec('git branch --set-upstream-to=origin/pages pages');
 exec('git pull');
 exec('git merge main --no-edit');
 exec('npm i && npm run build');
+exec('git add .');
 exec(`git commit -am 'docs: update pages'`);
 exec('git push origin pages');
 exec('git checkout -');
