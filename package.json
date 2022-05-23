@@ -19,6 +19,7 @@
     "less": "^4.1.1",
     "postcss-plugin-px2rem": "^0.8.1",
     "typescript": "^4.3.2",
-    "vite": "^2.4.4"
+    "vite": "^2.4.4",
+    "vite-plugin-pwa": "^0.12.0"
   }
 }
