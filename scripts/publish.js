@@ -10,3 +10,4 @@ exec('npm i && npm run build');
 exec(`git commit -am 'docs: update pages'`);
 exec('git push origin pages');
 exec('git checkout -');
+exec('git checkout .');
