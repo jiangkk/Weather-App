@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "publish": "node ./scripts/publish.js"
   },
   "dependencies": {
     "classnames": "^2.3.1",
