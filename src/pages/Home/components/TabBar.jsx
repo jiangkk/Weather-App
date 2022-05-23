@@ -13,7 +13,7 @@ const TABS = [
 ]
 
 export default function TabBar (props) {
-  // TODO:
+  // 只有一个tab，可以先写死active为0
   const activeTabIdx = 0;
 
   return (

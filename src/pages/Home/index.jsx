@@ -1,11 +1,15 @@
 import React from 'react';
 import TabBar from './components/TabBar';
 import Now from './components/Now';
-import './style.less';
+import Image from '@/components/Image';
+import styles from './index.module.less';
 
 export default function Home () {
   return (
-    <div className="home">
+    <div className={styles.home}>
+      <Image
+        className={styles.logo}
+        src="https://pic.imgdb.cn/item/628b934709475431293ef462.png"/>
       <Now />
       <TabBar />
     </div>

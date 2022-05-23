@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import cx from 'classnames';
 import { WEATHER_FIELD_CONFIG } from '@/common/constants';
+import { useNowWeather } from '@/hooks/useWeather';
+import { getWeatherImg } from '@/common/utils';
+import Image from '@/components/Image';
 import styles from './BaseInfo.module.less';
+import Temperature from '@/components/Temperature';
 
 
-export default function BaseInfo (props) {
-  const { data = {} } = props;
+export default function BaseInfo () {
+  const nowWeather = useNowWeather();
   
   return (
     <div className={styles.baseInfo}>
@@ -14,13 +18,20 @@ export default function BaseInfo (props) {
         <div className={styles.topLeft}>
           <Link to={'/'} className={cx(styles.back, 'iconfont', 'icon-back')}></Link>
           <div className={styles.cityName}>
-            杭州市<br/>
-            浙江省
+            {nowWeather.city}<br/>
+            {nowWeather.province}
           </div>
-          <div className={styles.temp}>13<span className={styles.unit}>℃</span></div>
+          <Temperature
+            className={styles.temp}
+            value={nowWeather.temp}
+            fontSize={70}
+            unitSize={18}
+            color="#332821"
+            heightOffset={10}
+          />
         </div>
         <div className={styles.topRight}>
-          <img className={styles.img} src="https://s1.ax1x.com/2022/05/22/Ox4Jns.png"/>
+          <Image className={styles.img} src={getWeatherImg(nowWeather.text, nowWeather.nowTime)}/>
         </div>
       </div>
       <div className={styles.baseInfoBottom}>
@@ -39,7 +50,7 @@ export default function BaseInfo (props) {
               style={{ color, backgroundColor: bgColor }}
             >
               <span className={`iconfont icon-${icon}`}></span>
-              {data[field] || '-'}{unit}
+              {nowWeather[field] || '-'}{unit}
             </div>
           );
         })}

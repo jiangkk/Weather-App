@@ -1,27 +1,36 @@
+import { KEY } from "./constants";
+import { POSITION } from "../hooks/usePostion";
 
-const BASE_URL = 'http://localhost:8080';
+const BASE_URL = 'https://api.qweather.com/v7';
 
-// TODO: complete it
 function request({
   url,
   method = 'get',
   data = {},
 }) {
-  
+
+  // 统一给请求返回带上位置信息
+  const handleResponse = res => {
+    res.position = POSITION
+    return res;
+  };
+
+
+  url = `${BASE_URL}${url}?key=${KEY}&location=${POSITION.longitude},${POSITION.latitude}`;
+
   if (method.toLowerCase() === 'get') {
     const queryString = Object
       .keys(data)
       .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(data[k]))
       .join('&');
 
-    url = `${BASE_URL}${url}?${queryString}`;
+    queryString && (url = `${url}&${queryString}`);
+    return fetch(url).then(res => res.json()).then(handleResponse)
   }
 
-  const fetchOptions = method.toLowerCase() === 'get'
-    ? {}
-    : { body: JSON.stringify(data) }
+  const fetchOptions = { body: JSON.stringify(data) };
 
-  return fetch(url, fetchOptions).then(res => res.json())
+  return fetch(url, fetchOptions).then(res => res.json()).then(handleResponse)
 
 }
 

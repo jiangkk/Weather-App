@@ -2,35 +2,48 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import NumericalValue from './NumericalValue';
 import styles from './Now.module.less';
+import { getDateWeekDay, getHour, getWeatherImg } from '@/common/utils';
+import { useNowWeather } from '@/hooks/useWeather';
+import Image from '@/components/Image';
+import Temperature from '@/components/Temperature';
+
 
 
 export default function Now () {
+  const nowWeather = useNowWeather();
 
   return (
     <div className={styles.now}>
       <div className={styles.panel}>
-        <img
+        <Image
           className={styles.nowImg}
-          src="https://s1.ax1x.com/2022/05/22/Ox4Jns.png"
+          src={getWeatherImg(nowWeather.text, nowWeather.nowTime)}
         />
-        <div className={styles.locationName}>杭州市，浙江省</div>
+        <div className={styles.locationName}>{nowWeather.city}&nbsp;{nowWeather.province}</div>
         <div className={styles.nowInfo}>
           <div className={styles.nowInfoLeft}>
-            <div className={styles.nowTemp}>15<span className={styles.nowTempUnit}>℃</span></div>
-            <div className={styles.nowDate}>周日,<span className={styles.nowDate}>11 am</span></div>
+            <Temperature
+              value={nowWeather.temp}
+              fontSize={48}
+              unitSize={12}
+              heightOffset={6}
+            />
+            <div className={styles.nowDate}>{getDateWeekDay(nowWeather.nowTime)}
+              <span className={styles.nowDateHour}>{getHour(nowWeather.nowTime).halfHourText}</span>
+            </div>
           </div>
           <div className={styles.nowInfoRight}>
             <div
               className={styles.tag}
               style={{ backgroundColor: 'rgba(212, 66, 111, 0.5)', width: 72}}
             >
-                强风
+                {nowWeather.windDir}
             </div>
             <div
               className={styles.tag}
               style={{ backgroundColor: 'rgba(106, 117, 186, 0.5)', width: 50}}
             >
-                阴
+                {nowWeather.text}
             </div>
           </div>
         </div>
@@ -38,7 +51,7 @@ export default function Now () {
           详情
         </Link>
       </div>
-      <NumericalValue/>
+      <NumericalValue data={nowWeather}/>
     </div>
   )
 }

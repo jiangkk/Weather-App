@@ -1,43 +1,26 @@
 import React from 'react';
+import { getHour } from '@/common/utils';
+import { useHoursWeather } from '@/hooks/useWeather';
+import Temperature from '@/components/Temperature';
 import styles from './Hours.module.less';
 
-export default function Hours (props) {
-
-  const mockHours = [
-    {
-      time: 10,
-      temp: 11
-    },
-    {
-      time: 10,
-      temp: 11
-    },
-    {
-      time: 10,
-      temp: 11
-    },
-    {
-      time: 10,
-      temp: 11
-    },
-    {
-      time: 10,
-      temp: 11
-    },
-    {
-      time: 10,
-      temp: 11
-    }
-  ]
+export default function Hours () {
+  const hoursWeather = useHoursWeather();
 
   return (
     <div className={styles.hoursWrapper}>
       <div className={styles.hours}>
-        {mockHours.map((hour) => {
+        {hoursWeather.map((hour, idx) => {
           return (
-            <div className={styles.hourItem} key={hour.time}>
-              <div className={styles.tempValue}>{hour.temp}</div>
-              <div className={styles.timeValue}>{hour.time}</div>
+            <div className={styles.hourItem} key={idx}>
+              <Temperature
+                className={styles.tempValue}
+                value={hour.temp}
+                fontSize={25}
+                color="#332821"
+                heightOffset={2}
+              />
+              <div className={styles.timeValue}>{getHour(hour.fxTime).halfHourText}</div>
             </div>
           )
         })}
