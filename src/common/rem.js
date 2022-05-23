@@ -12,7 +12,8 @@ function initRem() {
     if (!clientWidth) {
       return;
     }
-    documentElement.style.fontSize = 100 * (clientWidth / 375) + 'px';
+
+    documentElement.style.fontSize = Math.min(100 * (clientWidth / 375) ,150) + 'px';
   }
 
   window.addEventListener(resizeEvent, reCalcRootValue, false);

@@ -12,7 +12,7 @@ export default defineConfig({
   build: {
     outDir: path.resolve(__dirname, "docs"),
   },
-  base: '/Weather-App/',
+  base: process.env.NODE_ENV === 'production' ? '/Weather-App/' : '/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, "src"),

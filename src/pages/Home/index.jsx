@@ -7,11 +7,13 @@ import styles from './index.module.less';
 export default function Home () {
   return (
     <div className={styles.home}>
-      <Image
-        className={styles.logo}
-        src="https://pic.imgdb.cn/item/628b934709475431293ef462.png"/>
-      <Now />
-      <TabBar />
+      <div className='page-container'>
+        <Image
+          className={styles.logo}
+          src="https://pic.imgdb.cn/item/628b934709475431293ef462.png"/>
+        <Now />
+        <TabBar />
+      </div>
     </div>
   );
 }
