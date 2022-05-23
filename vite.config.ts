@@ -9,6 +9,9 @@ export default defineConfig({
     https: true,
     host: '0.0.0.0'
   },
+  build: {
+    outDir: path.resolve(__dirname, "docs"),
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, "src"),
